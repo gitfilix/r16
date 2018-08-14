@@ -1,0 +1,4 @@
+my react 16 course notes
+------------------------
+
+'npm start' to start the bundeler.
