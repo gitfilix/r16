@@ -6,6 +6,7 @@ my react 16 course notes
 
 
 Functional components
+----------------------
 (also referred to as "presentational", "dumb" or "stateless" components
 
 schema:
@@ -15,12 +16,13 @@ const cmp = () => {
 
 
 class-based components
+----------------------
 (also referred to as "containers", "smart" or "stateful" components)
  schema:
-
 class Cmp extends Component {
   render () {
     return
-      <div>some JSX</div> 
+      <div>some JSX</div>
     }
 }
+ here its this.props
