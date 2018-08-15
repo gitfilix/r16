@@ -12,8 +12,9 @@ class App extends Component {
     ]
   }
 
+
   switchNameHandler = (newName) => {
-    console.log("button was clicked! this:", this);
+    // console.log("button was clicked! this:", this);
     this.setState({
       persons: [
         { name: 'Felixli', age: 29},
@@ -24,11 +25,22 @@ class App extends Component {
     })
   }
 
+  nameChangedHandler = (event) => {
+    this.setState({
+      persons: [
+        { name: 'Felixli', age: 29},
+        { name: 'Stramplchen', age: 0.4},
+        { name: event.target.value, age: 33},
+        { name: 'Mor-its', age: 28}
+      ]
+    })
+  }
+
   render() {
     return (
       <div className="App">
           <h1 className="App-title" >My new FLX R16 App</h1>
-          <button onClick={() => this.switchNameHandler('button')}>Switch Name</button>
+          <button onClick={() => this.switchNameHandler('button')} className="button">Switch Name</button>
 
           <Person
             name={this.state.persons[0].name}
@@ -40,6 +52,7 @@ class App extends Component {
             name={this.state.persons[2].name}
             age={this.state.persons[2].age}
             click={this.switchNameHandler.bind(this, 'hallo world')}
+            changed={this.nameChangedHandler}
             >and my hobby is skating.</Person>
           <Person
             name={this.state.persons[3].name}
