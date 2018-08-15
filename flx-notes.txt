@@ -25,4 +25,4 @@ class Cmp extends Component {
       <div>some JSX</div>
     }
 }
- here its this.props
+ here its 'this.props'
