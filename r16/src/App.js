@@ -37,19 +37,19 @@ class App extends Component {
     const personIndex = this.state.persons.findIndex(p =>{
       return p.id === id;
     })
-    // create a new object
-    const person = {
+    // create a new person-object
+    const personNew = {
       ...this.state.persons[personIndex]
     };
     // update name at copy
-    person.name = event.target.value;
-    // update the original arry
-    const persons = [...this.state.persons];
+    personNew.name = event.target.value;
+    // update the Copy-arry
+    const personsArry = [...this.state.persons];
 
-    persons[personIndex] = person;
-
+    personsArry[personIndex] = personNew;
+    // update the state with the copyArry
     this.setState(
-      { persons: persons}
+      { persons: personsArry}
     );
   }
 
