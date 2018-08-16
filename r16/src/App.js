@@ -6,10 +6,10 @@ class App extends Component {
   state = {
     // single source of truth
     persons: [
-      { name: 'Fiiliks', age: 39},
-      { name: 'Sophieli', age: 0.3},
-      { name: 'Max', age: 29},
-      { name: 'Moritz', age: 23}
+      {id: 'as4352', name: 'Sophieli', age: 0.3},
+      {id: 'as4351', name: 'Max', age: 29},
+      {id: 'as4335', name: 'Moritz', age: 23},
+      {id: 'as435t', name: 'Fiiliks', age: 39}
     ],
     otherState: 'some value here',
     showPersons: false
@@ -32,15 +32,25 @@ class App extends Component {
     this.setState({persons: persons});
   }
 
-  nameChangedHandler = (event) => {
-    this.setState({
-      persons: [
-        { name: 'Felixli', age: 29},
-        { name: 'Stramplchen', age: 0.4},
-        { name: event.target.value, age: 33},
-        { name: 'Mor-its', age: 28}
-      ]
+  nameChangedHandler = (event, id) => {
+    // findIndex: return a function
+    const personIndex = this.state.persons.findIndex(p =>{
+      return p.id === id;
     })
+    // create a new object
+    const person = {
+      ...this.state.persons[personIndex]
+    };
+    // update name at copy
+    person.name = event.target.value;
+    // update the original arry
+    const persons = [...this.state.persons];
+
+    persons[personIndex] = person;
+
+    this.setState(
+      { persons: persons}
+    );
   }
 
   render() {
@@ -54,7 +64,9 @@ class App extends Component {
             return <Person
               click={() => this.deletePersonHandler(index)}
               name={person.name}
-              age={person.age} />
+              age={person.age}
+              key={person.id}
+              changed={(event) => this.nameChangedHandler(event, person.id)} />
           })}
         </div>
       )
@@ -63,7 +75,6 @@ class App extends Component {
       <div className="App">
           <h1 className="App-title" >My new FLX R16 App</h1>
           <button onClick={this.togglePersonsHandler} className="button">Show them</button>
-
           {persons}
       </div>
     );

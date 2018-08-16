@@ -26,3 +26,7 @@ class Cmp extends Component {
     }
 }
  here its 'this.props'
+
+
+ Javascript object are REFERECED Typed
+-> make always a copy if you want to mutate it.
