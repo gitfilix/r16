@@ -4,6 +4,7 @@ import Person from './Person/Person.js';
 
 class App extends Component {
   state = {
+    // single source of truth
     persons: [
       { name: 'Fiiliks', age: 39},
       { name: 'Sophieli', age: 0.3},
@@ -21,16 +22,14 @@ class App extends Component {
     )
   }
 
-  switchNameHandler = (newName) => {
-    // console.log("button was clicked! this:", this);
-    this.setState({
-      persons: [
-        { name: 'Felixli', age: 29},
-        { name: newName, age: 0.4},
-        { name: 'Määäxli', age: 31},
-        { name: 'Mor-its', age: 24}
-      ]
-    })
+  deletePersonHandler = (personIndex) => {
+    //1. slice copies and returned a new array
+    //const persons = this.state.persons.slice();
+
+    //2. es6 way: spread operator
+    const persons = [...this.state.persons];
+    persons.splice(personIndex, 1);
+    this.setState({persons: persons});
   }
 
   nameChangedHandler = (event) => {
@@ -51,21 +50,12 @@ class App extends Component {
     if (this.state.showPersons) {
       persons = (
         <div>
-          <Person
-          name={this.state.persons[0].name}
-          age={this.state.persons[0].age} />
-          <Person
-          name={this.state.persons[1].name}
-          age={this.state.persons[1].age} />
-          <Person
-          name={this.state.persons[2].name}
-          age={this.state.persons[2].age}
-          click={this.switchNameHandler.bind(this, 'hallo world')}
-          changed={this.nameChangedHandler}
-          >and my hobby is skating.</Person>
-          <Person
-          name={this.state.persons[3].name}
-          age={this.state.persons[3].age} />
+          {this.state.persons.map((person, index) => {
+            return <Person
+              click={() => this.deletePersonHandler(index)}
+              name={person.name}
+              age={person.age} />
+          })}
         </div>
       )
     }
