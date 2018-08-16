@@ -45,30 +45,36 @@ class App extends Component {
   }
 
   render() {
+
+    let persons = null;
+
+    if (this.state.showPersons) {
+      persons = (
+        <div>
+          <Person
+          name={this.state.persons[0].name}
+          age={this.state.persons[0].age} />
+          <Person
+          name={this.state.persons[1].name}
+          age={this.state.persons[1].age} />
+          <Person
+          name={this.state.persons[2].name}
+          age={this.state.persons[2].age}
+          click={this.switchNameHandler.bind(this, 'hallo world')}
+          changed={this.nameChangedHandler}
+          >and my hobby is skating.</Person>
+          <Person
+          name={this.state.persons[3].name}
+          age={this.state.persons[3].age} />
+        </div>
+      )
+    }
     return (
       <div className="App">
           <h1 className="App-title" >My new FLX R16 App</h1>
           <button onClick={this.togglePersonsHandler} className="button">Show them</button>
-          {
-            this.state.showPersons === true ?
-            <div>
-              <Person
-              name={this.state.persons[0].name}
-              age={this.state.persons[0].age} />
-              <Person
-              name={this.state.persons[1].name}
-              age={this.state.persons[1].age} />
-              <Person
-              name={this.state.persons[2].name}
-              age={this.state.persons[2].age}
-              click={this.switchNameHandler.bind(this, 'hallo world')}
-              changed={this.nameChangedHandler}
-              >and my hobby is skating.</Person>
-              <Person
-              name={this.state.persons[3].name}
-              age={this.state.persons[3].age} />
-            </div> : null
-        }
+
+          {persons}
       </div>
     );
   }
