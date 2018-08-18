@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Person from './Person/Person';
+import Person from './Person/Person.js';
 
 // es6 shorthand on oneliner: no brackets no return statement but its a return statement
 const persons = (props) => props.persons.map((person, index) => {

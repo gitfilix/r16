@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Persons from '../components/Persons/Persons.js';
+import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
   state = {
@@ -69,8 +70,10 @@ class App extends Component {
     }
     return (
       <div className="App">
-          <h1 className="App-title" >My new FLX R16 App</h1>
-          <button onClick={this.togglePersonsHandler} className="button">Show them</button>
+          <Cockpit
+            showPersons={this.state.ShowPersons}
+            persons={this.state.persons}
+            clicked={this.togglePersonsHandler}/>
           {persons}
       </div>
     );
