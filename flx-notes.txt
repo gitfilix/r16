@@ -54,3 +54,24 @@ const xz = (props) =>
 NO access to State
 NO lifecycle hooks
 access props via 'props'
+
+
+lifecycles
+-----------------
+constructor(props) -> you may initiate state here
+
+componentWillMount (mostly depricated) -> update state, optimisations
+
+render() ->  prepare & structure your jsx code
+
+after render:
+componentDidMount -> NO state changes
+
+
+componentWillReceiveProps(nextProps) -> sync state to props
+
+shouldComponentUpdate(nextProps / nextState) -> decide, continue or not. true/false: no rerender
+
+comonentWillUpdate (nextProps / nextState)
+
+after render: update Child component Props

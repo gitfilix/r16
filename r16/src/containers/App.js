@@ -4,17 +4,32 @@ import Persons from '../components/Persons/Persons.js';
 import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
-  state = {
-    // single source of truth
-    persons: [
-      {id: 'as4352', name: 'Sophieli', age: 0.3},
-      {id: 'as4351', name: 'Max', age: 29},
-      {id: 'as4335', name: 'Moritz', age: 23},
-      {id: 'as435t', name: 'Fiiliks', age: 39}
-    ],
-    otherState: 'some value here',
-    showPersons: false
-  }
+    constructor(props) {
+        super(props);
+        console.log("App.js inside constructor", props);
+        this.state = {
+           // single source of truth
+           persons: [
+             {id: 'as4352', name: 'Sam', age: 65},
+             {id: 'as4351', name: 'Bruno', age: 29},
+             {id: 'as4335', name: 'Moritz', age: 33},
+             {id: 'as435t', name: 'Felixinchen', age: 41}
+           ],
+           otherState: 'some value here',
+           showPersons: false
+         }
+
+    }
+
+    componentWillMount(props) {
+        console.log("App.js: componentWillMount" );
+    }
+
+
+    componentDidMount() {
+        console.log("App.js: componentDidMount" );
+    }
+
 
   togglePersonsHandler = () => {
     const doesShow = this.state.showPersons;
@@ -55,6 +70,7 @@ class App extends Component {
   }
 
   render() {
+      console.log("render triggered");
     let persons = null;
 
     if (this.state.showPersons) {
