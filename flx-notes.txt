@@ -75,3 +75,7 @@ shouldComponentUpdate(nextProps / nextState) -> decide, continue or not. true/fa
 comonentWillUpdate (nextProps / nextState)
 
 after render: update Child component Props
+
+
+PureComponent - component without the shouldComponentUpdate lifecycle in it.
+Only use it if updates are never reqiuered
