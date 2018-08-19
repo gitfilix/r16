@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
 import './App.css';
+import React, { Component } from 'react';
 import Persons from '../components/Persons/Persons.js';
 import Cockpit from '../components/Cockpit/Cockpit';
 
@@ -55,22 +55,20 @@ class App extends Component {
   }
 
   render() {
-
     let persons = null;
 
     if (this.state.showPersons) {
       persons = (
-        <div>
           <Persons
             persons={this.state.persons}
             clicked={this.deletePersonHandler}
             changed={this.nameChangedHandler} />
-        </div>
       )
     }
     return (
       <div className="App">
           <Cockpit
+            appTitle={this.props.appTitle}
             showPersons={this.state.ShowPersons}
             persons={this.state.persons}
             clicked={this.togglePersonsHandler}/>

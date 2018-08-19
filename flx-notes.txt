@@ -14,6 +14,9 @@ const cmp = () => {
   return <div>some JSX</div>
 }
 
+---> do as often as possible: fuctional/ presentational component
+(here you do NOT update the state)
+
 
 class-based components
 ----------------------
@@ -28,5 +31,26 @@ class Cmp extends Component {
  here its 'this.props'
 
 
+
  Javascript object are REFERECED Typed
 -> make always a copy if you want to mutate it.
+
+
+StateFULL Component
+-------------------
+class y extends component
+access to state
+lifecycle hooks
+access state / props via 'this'
+
+-> modify state or access lifecycle hooks in StateFULL
+
+
+Stateless Component
+-------------------
+
+const xz = (props) =>
+
+NO access to State
+NO lifecycle hooks
+access props via 'props'
