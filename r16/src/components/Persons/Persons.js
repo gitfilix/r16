@@ -7,21 +7,24 @@ class Persons extends Component {
         super(props);
         console.log("Persons.js constructor", props);
     }
-    componentWillMount() {
-        console.log("Persons.js: componentWillMount" );
-    }
-
-    componentDidMount() {
-        console.log("Persons.js: componentDidMount" );
-    }
-
-    componentWillReceiveProps(nextProps) {
-        console.log("Update Person.js: nextProps", nextProps);
-    }
+    // componentWillMount() {
+    //     console.log("Persons.js: componentWillMount" );
+    // }
+    //
+    // componentDidMount() {
+    //     console.log("Persons.js: componentDidMount" );
+    // }
+    //
+    // componentWillReceiveProps(nextProps) {
+    //     console.log("Update Person.js: nextProps", nextProps);
+    // }
     // gain performance with that check
     shouldComponentUpdate(nextProps, nextState) {
         console.log("shouldComponentUpdate", nextProps, nextState);
-        return nextProps.persons !== this.props.persons;
+        return nextProps.persons !== this.props.persons ||
+            nextProps.changed !== this.props.changed ||
+            nextProps.clicked !== this.props.clicked;
+        // return true;
     }
     render () {
         return this.props.persons.map((person, index) => {
