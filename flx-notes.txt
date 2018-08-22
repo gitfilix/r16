@@ -76,6 +76,12 @@ comonentWillUpdate (nextProps / nextState)
 
 after render: update Child component Props
 
-
+Pure Component
+-------------------
 PureComponent - component without the shouldComponentUpdate lifecycle in it.
 Only use it if updates are never reqiuered
+
+
+Higher Order Component (hoc)
+----------------------------
+they are NOT representational - they wrap other components
