@@ -1,5 +1,7 @@
-.App {
+#root {
+  margin: 10px;
   text-align: center;
+  border: 1px solid #999;
 }
 
 .button {
