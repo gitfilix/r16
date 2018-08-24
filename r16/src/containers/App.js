@@ -13,7 +13,7 @@ class App extends Component {
            persons: [
              {id: 'as4352', name: 'Sam', age: 65},
              {id: 'as4351', name: 'Bruno', age: 29},
-             {id: 'as4335', name: 'Moritz', age: 33},
+             {id: 'as4335', name: 'Moritz', age: 43},
              {id: 'as435t', name: 'Felixinchen', age: 41}
            ],
            otherState: 'some value here',
@@ -36,12 +36,16 @@ class App extends Component {
         console.log("Update Person.js: nextProps", nextProps);
     }
 
-
+ // setState be sure to take the actual state due setState is working asynchronously:
+ v // function with the returned state-objcec
   togglePersonsHandler = () => {
     const doesShow = this.state.showPersons;
-    this.setState(
-      {showPersons: !doesShow}
-    )
+    this.setState( (prevState, props) => {
+      return {
+        showPersons: !doesShow,
+        toggleClicked: prevState.toggleClicked +1
+      }
+    });
   }
 
   deletePersonHandler = (personIndex) => {
@@ -76,7 +80,6 @@ class App extends Component {
   }
 
   render() {
-      console.log("render triggered");
     let persons = null;
 
     if (this.state.showPersons) {

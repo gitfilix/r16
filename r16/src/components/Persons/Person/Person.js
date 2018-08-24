@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'; // extra library
 import WithClass from '../../../hoc/WithClass.js'
 import './Person.css';
 // functional Component - StateFULL
@@ -16,5 +17,13 @@ class Person extends Component {
         )
     }
 }
+
+//props-types check
+Person.propTypes = {
+  click: PropTypes.func,
+  name: PropTypes.string,
+  age: PropTypes.number,
+  changed: PropTypes.func
+};
 
 export default Person;

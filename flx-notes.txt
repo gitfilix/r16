@@ -85,3 +85,8 @@ Only use it if updates are never reqiuered
 Higher Order Component (hoc)
 ----------------------------
 they are NOT representational - they wrap other components
+
+
+
+setState is called asynchronously by react.
+therefore you should rely on the prevState, nextState
