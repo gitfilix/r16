@@ -22,9 +22,9 @@ class App extends Component {
 
     }
 
-    componentWillMount() {
-        console.log("App.js: componentWillMount" );
-    }
+    // componentWillMount() {
+    //     console.log("App.js: componentWillMount" );
+    // }
 
     shouldComponentUpdate( nextProps, nextState) {
         console.log("app.js: shouldComponentUpdate", nextProps, nextState );
@@ -32,12 +32,28 @@ class App extends Component {
         nextState.showPersons !== this.state.showPersons;
     }
 
-    componentWillReceiveProps(nextProps) {
-        console.log("Update Person.js: nextProps", nextProps);
+    // componentWillReceiveProps(nextProps) {
+    //     console.log("App.js: nextProps", nextProps);
+    // }
+
+    //New lifecycles introduced 16.3
+    // get props, modify them and the state and return a new state obj
+    // bring state & props in sync
+    static getDerivedStateFromProps(nextProps, prevState) {
+        console.log(
+          "getDerivedStateFromProps: nextProps",
+          nextProps,
+          prevState);
+
+          return prevState;
+    }
+    // get a DOM snapshot before render
+    getSnapshotBeforeUpdate() {
+      console.log("App.js: inside getSnapshotBeforeUpdate");
     }
 
  // setState be sure to take the actual state due setState is working asynchronously:
- v // function with the returned state-objcec
+ // function with the returned state-objcec
   togglePersonsHandler = () => {
     const doesShow = this.state.showPersons;
     this.setState( (prevState, props) => {
