@@ -7,7 +7,7 @@ class Persons extends Component {
         super(props);
         console.log("Persons.js constructor", props);
     }
-    
+
     // gain performance with that check
     shouldComponentUpdate(nextProps, nextState) {
         console.log("shouldComponentUpdate", nextProps, nextState);
@@ -22,6 +22,7 @@ class Persons extends Component {
                 click={ () => this.props.clicked(index) }
                 name={person.name}
                 age={person.age}
+                position={index}
                 key={person.id}
                 changed={(event) => this.props.changed(event, person.id )} />
         }   );
