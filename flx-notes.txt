@@ -94,7 +94,10 @@ therefore you should rely on the prevState, nextState
 
 
 Object.keys(props.ingredients):
-creates an Object with props
+->Object-keys method: transformes object key-paires into an array of strings
 
- Array(props):
- creates an array with 
+
+ Array(3):
+
+    creates an new Array with ...(spread-Opereator) elements
+    return [...Array(props.ingredients[igKey])];
