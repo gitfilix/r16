@@ -36,6 +36,24 @@ class Cmp extends Component {
 -> make always a copy if you want to mutate it.
 
 
+State
+------
+Use state for store DATA your current page
+Top-Level
+is Mutable
+less performance
+    burgerapp-State:
+        ingredients, 
+        purchased? true/false,
+        totalprice
+
+Props
+-------
+use Props to pass data and event handlers to child components
+immutable
+better performance
+
+
 StateFULL Component
 -------------------
 class y extends component
@@ -70,9 +88,9 @@ componentDidMount -> NO state changes
 
 componentWillReceiveProps(nextProps) -> sync state to props
 
-shouldComponentUpdate(nextProps / nextState) -> decide, continue or not. true/false: no rerender
+shouldComponentUpdate(nextProps / nextState) -> decide, continue or not. true/false: no re-render
 
-comonentWillUpdate (nextProps / nextState)
+componentWillUpdate (nextProps / nextState)
 
 after render: update Child component Props
 

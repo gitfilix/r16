@@ -5,14 +5,15 @@ import BurgerIngredient from './BurgerIngredient/BurgerIngredient';
 
 
 const burger = (props) => {
-    // console.log("burger props:", props);
+    console.log("burger props:", props);
     // Object.keys methods transformes(returns) object keys (NOT Values) into an array
     let transformedIngredients = Object.keys(props.ingredients)
+        // map over ingredientsKeys
         .map(igKey => {
-            // create an Array with spread operator for props ingredients
+            // create an default js-Array object with spread operator for props ingredients
             return [...Array(props.ingredients[igKey])].map((_, i) => {
                 // console.log("props.ingredients", props.ingredients);
-                //console.log("igKey", igKey);
+                // console.log("igKey", igKey);
                 return <BurgerIngredient key={igKey + 1} type={igKey} />
             });
         })
